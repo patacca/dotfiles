@@ -47,6 +47,7 @@ URxvt*cursorColor:        #FDA53C
 ! END Colors
 
 ! URxvt
+URxvt*termName: rxvt-unicode-256color
 URxvt.urgentOnBell: off
 URxvt.visualBell: false
 URxvt.iso14755: false
