@@ -1,0 +1,40 @@
+# Generic
+ncmpcpp_directory		= "~/.ncmpcpp"
+mpd_music_dir			= "~/Musica"
+external_editor			= "vim"
+
+# Layout
+playlist_display_mode		= "columns"
+browser_display_mode		= "columns"
+search_engine_display_mode	= "columns"
+playlist_editor_display_mode	= "columns"
+user_interface			= "alternative"
+display_bitrate			= "yes"
+locked_screen_width_part	= "60"
+progressbar_look		= "─╼─"
+clock_display_seconds		= "yes"
+#centered_cursor			= "yes"
+
+# Formats
+#song_list_format		= "$7[$4%n$7]$9 $7[$9$3%l$7]$9 $1|$9 $7%a$9 $1|$9 $2%t$9 $R $5%b$9"
+song_columns_list_format	= "$L(5)[yellow]{d - } (5)[yellow]{n} (7)[white]{l} (20)[red]{a} (30)[green]{b}$R(20)[cyan]{t}"
+#song_columns_list_format	= "$L(7)[yellow]{n} (40)[default]{t|f} (25)[red]{a} (30)[blue]{b} (4f)[black]{l}"
+song_list_format		= " $0$8$8%l$0$8 $1|$7 $7%a$7 $1|$7 $6%t$1 $R $8%b$1"
+song_window_title_format	= "{%a - }{%t}"
+#song_window_title_format	= "{%a - }{%t}{ [%b{ Disc %d}]}|{%f}"
+now_playing_prefix		= "$b"
+
+# Colors
+main_window_color		= "cyan"
+empty_tag_color			= "green"
+state_flags_color		= "green"
+#color1 = "cyan"
+#color2 = "black"
+
+# Visualizer
+visualizer_fifo_path		= "/tmp/mpd.fifo"
+visualizer_output_name		= "My FIFO"
+visualizer_sync_interval	= "100"
+#visualizer_type		= "wave" (spectrum/wave)
+visualizer_type			= "spectrum" (spectrum/wave)
+#visualizer_look			= "◆▋"

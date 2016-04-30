@@ -1,0 +1,1 @@
+regexSearch: bad_expression: Unmatched [ or [^ in character class declaration.  The error occurred while parsing the regular expression: '[B>>>HERE>>>'.

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<opml version="1.0">
+  <head>
+    <title>Liferea Feed List Export</title>
+  </head>
+  <body>
+    <outline title="Slashdot" text="Slashdot" description="Slashdot" type="rss" id="wexpyyu" sortColumn="time" xmlUrl="http://rss.slashdot.org/Slashdot/slashdotMain" htmlUrl="http://slashdot.org/" updateInterval="-1" collapsed="true"/>
+    <outline title="Schneier on Security" text="Schneier on Security" description="Schneier on Security" type="atom" id="fsyfvjk" sortColumn="time" xmlUrl="https://www.schneier.com/blog/atom.xml" htmlUrl="https://www.schneier.com/blog/" updateInterval="-1" collapsed="true"/>
+    <outline title="The Tor Blog blogs" text="The Tor Blog blogs" description="The Tor Blog blogs" type="rss" id="splddfm" sortColumn="time" xmlUrl="https://blog.torproject.org/blog/feed" htmlUrl="https://blog.torproject.org/blog" updateInterval="-1" collapsed="true"/>
+    <outline title="Italia" text="Italia" description="Italia" type="folder" id="sycbnry" sortColumn="time" expanded="true">
+      <outline title="Economia" text="Economia" description="Economia" type="folder" id="tjonsbp" sortColumn="time" expanded="true">
+        <outline title="Adnkronos - Economia" text="Adnkronos - Economia" description="Adnkronos - Economia" type="rss" id="dkwvfjs" sortColumn="time" xmlUrl="http://rss.feedsportal.com/c/32375/f/448351/index.rss" htmlUrl="http://www.adnkronos.com/soldi/economia/" updateInterval="-1" collapsed="true"/>
+        <outline title="Corriere.it - Economia" text="Corriere.it - Economia" description="Corriere.it - Economia" type="rss" id="ynewasd" sortColumn="time" xmlUrl="http://xml.corriereobjects.it/rss/economia.xml" htmlUrl="http://www.corriere.it/" updateInterval="-1" collapsed="true"/>
+        <outline title="Repubblica.it &gt; Economia" text="Repubblica.it &gt; Economia" description="Repubblica.it &gt; Economia" type="rss" id="lisjibk" sortColumn="time" xmlUrl="http://www.repubblica.it/rss/economia/rss2.0.xml?ref=HRF-1" htmlUrl="http://www.repubblica.it/economia" updateInterval="-1" collapsed="true"/>
+      </outline>
+      <outline title="Politica" text="Politica" description="Politica" type="folder" id="yhkufqc" sortColumn="time" expanded="true">
+        <outline title="Adnkronos - Politica" text="Adnkronos - Politica" description="Adnkronos - Politica" type="rss" id="vacpgsn" sortColumn="time" xmlUrl="http://rss.adnkronos.com/RSS_Politica.xml" htmlUrl="http://www.adnkronos.com/fatti/politica/" updateInterval="-1" collapsed="true"/>
+        <outline title="Repubblica.it &gt; Politica" text="Repubblica.it &gt; Politica" description="Repubblica.it &gt; Politica" type="rss" id="bowqibk" sortColumn="time" xmlUrl="http://www.repubblica.it/rss/politica/rss2.0.xml?ref=HRF-1" htmlUrl="http://www.repubblica.it/politica" updateInterval="-1" collapsed="true"/>
+        <outline title="RSS di Politica  - ANSA.it" text="RSS di Politica  - ANSA.it" description="RSS di Politica  - ANSA.it" type="rss" id="qugdcsw" sortColumn="time" xmlUrl="http://www.ansa.it/sito/notizie/politica/politica_rss.xml" htmlUrl="http://www.ansa.it/sito/notizie/politica/politica.shtml" updateInterval="-1" collapsed="true"/>
+      </outline>
+      <outline title="Repubblica.it &gt; Scuola" text="Repubblica.it &gt; Scuola" description="Repubblica.it &gt; Scuola" type="rss" id="xbhodbg" sortColumn="time" xmlUrl="http://www.repubblica.it/rss/scuola_e_universita/rss2.0.xml?ref=HRF-1" htmlUrl="http://www.repubblica.it/scuola" updateInterval="-1" collapsed="true"/>
+    </outline>
+    <outline title="Adnkronos - Lavoro" text="Adnkronos - Lavoro" description="Adnkronos - Lavoro" type="rss" id="wihshrd" sortColumn="time" xmlUrl="http://rss.adnkronos.com/RSS_Labitalia.xml" htmlUrl="http://www.adnkronos.com/lavoro/" updateInterval="-1" collapsed="true"/>
+    <outline title="Estero" text="Estero" description="Estero" type="folder" id="rtctsyf" sortColumn="time" expanded="true">
+      <outline title="Adnkronos - Esteri" text="Adnkronos - Esteri" description="Adnkronos - Esteri" type="rss" id="awyctvq" sortColumn="time" xmlUrl="http://rss.feedsportal.com/c/32375/f/448348/index.rss" htmlUrl="http://www.adnkronos.com/fatti/esteri/" updateInterval="-1" collapsed="true"/>
+    </outline>
+    <outline title="xkcd" text="xkcd" description="xkcd" type="atom" id="wmiitkc" sortColumn="time" xmlUrl="http://xkcd.com/atom.xml" htmlUrl="http://xkcd.com/" updateInterval="1440" collapsed="true"/>
+    <outline title="Zerocalcare.it" text="Zerocalcare.it" description="Zerocalcare.it" type="rss" id="rcwrtrl" sortColumn="time" xmlUrl="http://www.zerocalcare.it/feed/" htmlUrl="http://www.zerocalcare.it" updateInterval="-1" collapsed="true"/>
+    <outline title="Da leggere" text="Da leggere" description="Da leggere" type="vfolder" id="ghkhiwj" sortColumn="time" matchType="any" collapsed="true">
+      <outline type="rule" text="Stato come letto" rule="unread" value="" additive="true"/>
+    </outline>
+  </body>
+</opml>
