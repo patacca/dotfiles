@@ -95,7 +95,7 @@ end
 -- Tags
 tags = {
 	names = {"➊", "➋", "➌", "➍", "➎", "➏", "➐", "➑", "➒"},
-	layout = {layouts[1], layouts[1], layouts[4], layouts[8], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1]}
+	layout = {layouts[1], layouts[8], layouts[4], layouts[8], layouts[1], layouts[1], layouts[1], layouts[1], layouts[1]}
 }
 for s = 1, screen.count() do
     tags[s] = awful.tag(tags.names, s, tags.layout)
@@ -451,9 +451,11 @@ diskwrite_widget:set_color({
 diskwrite_widget:set_border_color("#597FAB")
 diskwrite_widget:set_background_color("#494B4F")
 
-vicious.register(diskread_widget, vicious.widgets.dio, function (widget, args)
+trash3 = wibox.widget.textbox()
+vicious.register(trash3, vicious.widgets.dio, function (widget, args)
 	diskwrite_widget:add_value(tonumber(args["{sda write_mb}"]))
-	return args["{sda read_mb}"]
+	diskread_widget:add_value(tonumber(args["{sda read_mb}"]))
+	return 0
 end, 1)
 
 -- MEM graph
@@ -754,7 +756,8 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey }, "f", function () awful.util.spawn( "firefox") end),
     awful.key({ altkey }, "i", function () awful.util.spawn( "firefox --private-window") end),
     awful.key({ altkey }, "p", function () awful.util.spawn( "pavucontrol") end),
-    awful.key({ altkey }, "e", function () awful.util.spawn( "thunar") end),
+    --awful.key({ altkey }, "e", function () awful.util.spawn( "thunar") end),
+    awful.key({ altkey }, "e", function () awful.util.spawn( "pcmanfm") end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
