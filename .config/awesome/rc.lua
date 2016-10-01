@@ -334,7 +334,7 @@ mpd_notification = {
 }
 
 function format_time(s)
-   return string.format("%d:%.2d", math.floor(s/60), s%60)
+   return string.format("%d:%.2d", math.floor(tonumber(s)/60), tonumber(s)%60)
 end
 
 mpdwidget = lain.widgets.mpd({
@@ -362,6 +362,9 @@ mpdwidget = lain.widgets.mpd({
 
 mpdwidget:connect_signal("mouse::enter", function () show_popup(mpd_notification) end)
 mpdwidget:connect_signal("mouse::leave", hide_popup)
+
+-- TaskWarrior
+--lain.widgets.contrib.task:attach(memwidget)
 
 
 --- {{{ BOTTOM BAR }}}
@@ -724,21 +727,40 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
-    awful.key({ modkey,           }, "Tab",
+    --[[awful.key({ modkey,           }, "Tab",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
                 client.focus:raise()
             end
+        end),]]
+    awful.key({ modkey, "Shift"   }, "Left",
+        function (c)
+            local curidx = awful.tag.getidx()
+            if curidx == 1 then
+                awful.client.movetotag(tags[client.focus.screen][9])
+            else
+                awful.client.movetotag(tags[client.focus.screen][curidx - 1])
+            end
+            awful.tag.viewprev()
         end),
-   awful.key({ altkey          }, "Tab", function () alttab.switch( 1, "Alt_L", "Tab", "ISO_Left_Tab") end),
-   awful.key({ altkey, "Shift" }, "Tab", function () alttab.switch(-1, "Alt_L", "Tab", "ISO_Left_Tab") end),
+    awful.key({ modkey, "Shift"   }, "Right",
+        function (c)
+            local curidx = awful.tag.getidx()
+            if curidx == 9 then
+                awful.client.movetotag(tags[client.focus.screen][1])
+            else
+                awful.client.movetotag(tags[client.focus.screen][curidx + 1])
+            end
+            awful.tag.viewnext()
+        end),
+   awful.key({ modkey          }, "Tab", function () alttab.switch( 1, "Super_L", "Tab", "ISO_Left_Tab") end),
+   awful.key({ modkey, "Shift" }, "Tab", function () alttab.switch(-1, "Super_L", "Tab", "ISO_Left_Tab") end),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
-
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
@@ -747,7 +769,6 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(layouts, -1) end),
-
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
     -- User program
@@ -756,8 +777,12 @@ globalkeys = awful.util.table.join(
     awful.key({ altkey }, "f", function () awful.util.spawn( "firefox") end),
     awful.key({ altkey }, "i", function () awful.util.spawn( "firefox --private-window") end),
     awful.key({ altkey }, "p", function () awful.util.spawn( "pavucontrol") end),
-    --awful.key({ altkey }, "e", function () awful.util.spawn( "thunar") end),
     awful.key({ altkey }, "e", function () awful.util.spawn( "pcmanfm") end),
+    awful.key({ modkey }, "i", function () awful.util.spawn( "sudo set_cooling_device 0 down") end),
+    awful.key({ modkey }, "p", function () awful.util.spawn( "sudo set_cooling_device 0 up") end),
+    awful.key({ modkey }, "o", function () awful.util.spawn( "sudo set_cooling_device 0 0") end),
+    awful.key({ modkey, altkey }, "l", function () awful.util.spawn( "xscreensaver-command -lock") end),
+    awful.key({}, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/Immagini/screenshots/ 2>/dev/null'") end),
 
     -- Prompt
     awful.key({ modkey },            "r",     function () mypromptbox[mouse.screen]:run() end),
@@ -770,7 +795,7 @@ globalkeys = awful.util.table.join(
                   awful.util.getdir("cache") .. "/history_eval")
               end)
     -- Menubar
-    --awful.key({ modkey }, "p", function() menubar.show() end)
+    --awful.key({ modkey }, "d", function() menubar.show() end)
 )
 
 clientkeys = awful.util.table.join(
@@ -778,7 +803,7 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
+    awful.key({ modkey,           }, "e",      awful.client.movetoscreen                        ),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "n",
         function (c)
@@ -793,10 +818,10 @@ clientkeys = awful.util.table.join(
         end),
 
     -- Move Windows with keyboard
-    awful.key({ modkey, "Shift" }, "Down",  function () awful.client.moveresize(  0,  20, 0, 0) end),
-    awful.key({ modkey, "Shift" }, "Up",    function () awful.client.moveresize(  0, -20, 0, 0) end),
-    awful.key({ modkey, "Shift" }, "Left",  function () awful.client.moveresize(-20,   0, 0, 0) end),
-    awful.key({ modkey, "Shift" }, "Right", function () awful.client.moveresize( 20,   0, 0, 0) end)
+    awful.key({ modkey, "Control", "Shift" }, "Down",  function () awful.client.moveresize(  0,  20, 0, 0) end),
+    awful.key({ modkey, "Control", "Shift" }, "Up",    function () awful.client.moveresize(  0, -20, 0, 0) end),
+    awful.key({ modkey, "Control", "Shift" }, "Left",  function () awful.client.moveresize(-20,   0, 0, 0) end),
+    awful.key({ modkey, "Control", "Shift" }, "Right", function () awful.client.moveresize( 20,   0, 0, 0) end)
 )
 
 -- Bind all key numbers to tags.
