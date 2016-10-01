@@ -1,1 +1,1 @@
-xss-lock -- /usr/bin/xflock4 &
+xss-lock -- /usr/bin/xscreensaver -lock &
